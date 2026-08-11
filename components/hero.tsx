@@ -1,102 +1,85 @@
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Check, TrendingUp } from "lucide-react"
 
-const levels = [
-  { code: "A1", label: "Beginner", color: "var(--turquoise)" },
-  { code: "A2", label: "Elementary", color: "var(--turquoise)" },
-  { code: "B1", label: "Intermediate", color: "var(--blue)", here: true },
-  { code: "B2", label: "Upper Int.", color: "var(--blue)" },
-  { code: "C1", label: "Advanced", color: "var(--purple)" },
-  { code: "C2", label: "Proficient", color: "var(--purple)" },
-]
+const checks = ["No credit card needed", "CEFR A1–C2", "Verified certificates"]
 
 export function Hero() {
   return (
-    <section className="border-b border-border bg-surface">
-      <div className="mx-auto grid w-[min(1240px,calc(100%-2.5rem))] gap-0 border-x border-border lg:grid-cols-[1.35fr_0.65fr]">
-        {/* Left: editorial statement */}
-        <div className="flex flex-col justify-center px-4 py-16 sm:px-8 lg:border-r lg:border-border lg:py-24">
-          <div className="mb-8 flex items-center gap-3 text-[0.7rem] font-bold uppercase tracking-[0.18em] text-purple">
-            <span className="h-px w-8 bg-purple" />
-            English Integrated Language Platform
+    <section className="relative overflow-hidden bg-indigo">
+      {/* dotted brand texture over the indigo field */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.14]"
+        aria-hidden
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, var(--violet) 1px, transparent 0)",
+          backgroundSize: "26px 26px",
+        }}
+      />
+
+      <div className="relative mx-auto grid w-[min(1200px,calc(100%-2.5rem))] items-center gap-14 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:py-28">
+        <div>
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-violet/40 bg-purple/30 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-violet">
+            <span className="h-1.5 w-1.5 rounded-full bg-turquoise" />
+            English from A1 to C2
           </div>
 
-          <h1 className="font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-indigo text-balance sm:text-6xl lg:text-7xl">
-            Start at your{" "}
-            <span className="relative inline-block">
-              <span className="relative z-10">real level</span>
-              <span className="absolute inset-x-0 bottom-1.5 z-0 h-4 bg-yellow" aria-hidden />
-            </span>{" "}
-            — climb every rung.
+          <h1 className="font-display text-5xl font-extrabold leading-[1.03] tracking-tight text-background text-balance sm:text-6xl">
+            The English course that{" "}
+            <span className="text-yellow">adjusts to you.</span>
           </h1>
 
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            A ten-minute placement test sets your CEFR level. Then IELPS assembles
-            your full course — adaptive lessons, live coaching, and verified
-            certificates — one rung at a time.
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-violet">
+            Placement test in 10 minutes. Then IELPS builds your full course —
+            lessons, practice, and coaching — around your exact level.
           </p>
 
-          <div className="mt-9 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#"
-              className="inline-flex items-center gap-2 rounded-md bg-purple px-6 py-3.5 text-base font-bold text-primary-foreground shadow-sm transition-transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 rounded-xl bg-yellow px-6 py-3.5 text-base font-bold text-indigo shadow-lg transition-transform hover:-translate-y-0.5"
             >
               Start free placement
               <ArrowRight className="h-4 w-4" strokeWidth={2.6} />
             </a>
             <a
               href="#"
-              className="inline-flex items-center rounded-md border border-indigo/25 px-6 py-3.5 text-base font-semibold text-indigo transition-colors hover:bg-lavender"
+              className="inline-flex items-center rounded-xl border border-violet/40 px-6 py-3.5 text-base font-semibold text-background transition-colors hover:bg-purple/40"
             >
               Create account
             </a>
           </div>
 
-          <dl className="mt-12 grid max-w-lg grid-cols-3 divide-x divide-border border-y border-border">
-            {[
-              { v: "10 min", l: "To place you" },
-              { v: "A1–C2", l: "Six CEFR levels" },
-              { v: "40+", l: "Countries" },
-            ].map((s) => (
-              <div key={s.l} className="px-4 py-4 first:pl-0">
-                <dt className="font-display text-2xl font-extrabold text-indigo">{s.v}</dt>
-                <dd className="mt-0.5 text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                  {s.l}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-
-        {/* Right: signature vertical CEFR ladder rail */}
-        <aside className="flex flex-col bg-card px-4 py-12 sm:px-8">
-          <p className="mb-6 text-[0.7rem] font-bold uppercase tracking-[0.16em] text-turquoise">
-            The one ladder
-          </p>
-          <ol className="relative flex flex-1 flex-col justify-between gap-3">
-            <span
-              className="absolute left-[1.35rem] top-4 bottom-4 w-px bg-border"
-              aria-hidden
-            />
-            {levels.map((lvl) => (
-              <li key={lvl.code} className="relative flex items-center gap-4">
-                <span
-                  className="grid h-11 w-11 shrink-0 place-items-center rounded-lg font-display text-sm font-extrabold text-white shadow-sm"
-                  style={{ backgroundColor: lvl.color }}
-                >
-                  {lvl.code}
-                </span>
-                <div className="flex min-w-0 flex-1 items-center justify-between">
-                  <span className="text-sm font-bold text-indigo">{lvl.label}</span>
-                  {lvl.here && (
-                    <span className="rounded-full bg-yellow px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-indigo">
-                      You&apos;re here
-                    </span>
-                  )}
-                </div>
+          <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
+            {checks.map((c) => (
+              <li key={c} className="flex items-center gap-2 text-sm font-medium text-violet">
+                <Check className="h-4 w-4 text-turquoise" strokeWidth={3} />
+                {c}
               </li>
             ))}
-          </ol>
-        </aside>
+          </ul>
+        </div>
+
+        <div className="relative">
+          <div className="overflow-hidden rounded-3xl border border-violet/20 shadow-2xl">
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/HERO%20PAGE%20V2-Fg9FwhQaOIjsSuOszTzTKtqpEbG1ef.jpg"
+              alt="Smiling student holding notebooks, ready to learn English"
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="absolute -bottom-6 -left-4 w-56 rounded-2xl border border-border bg-card p-4 shadow-xl sm:-left-8">
+            <div className="flex items-center gap-2 text-turquoise">
+              <TrendingUp className="h-4 w-4" strokeWidth={2.6} />
+              <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Average level gain
+              </span>
+            </div>
+            <p className="mt-1 font-display text-2xl font-extrabold text-indigo">
+              +1 CEFR <span className="text-purple">level</span>
+            </p>
+            <p className="text-xs text-muted-foreground">in 6 months of regular study</p>
+          </div>
+        </div>
       </div>
     </section>
   )
