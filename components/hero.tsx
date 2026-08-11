@@ -4,14 +4,14 @@ const checks = ["No credit card needed", "CEFR A1–C2", "Verified certificates"
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-indigo">
+    <section className="relative isolate overflow-hidden bg-indigo lg:min-h-[65.3vw]">
       {/* the photograph is the hero banner - everything below sits on top of it */}
       <picture>
         <source media="(max-width: 640px)" srcSet="/hero-student-1280.jpg" />
         <img
           src="/hero-student.jpg"
           alt="Smiling student holding notebooks, ready to learn English"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-[76%_40%] sm:object-[80%_6%] lg:object-[74%_6%]"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-[76%_40%] sm:object-[80%_4%] lg:object-[50%_0%]"
           fetchPriority="high"
         />
       </picture>
