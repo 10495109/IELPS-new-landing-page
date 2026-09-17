@@ -4,10 +4,10 @@ const links = ["Learn", "Placement", "Dashboard", "Plans"]
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur-md">
-      <div className="mx-auto flex h-16 w-[min(1240px,calc(100%-2.5rem))] items-center justify-between border-x border-border px-4 sm:px-6">
+    <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur-md">
+      <div className="mx-auto flex h-16 w-[min(1200px,calc(100%-2.5rem))] items-center justify-between">
         <a href="#" className="flex items-center gap-2.5">
-          <span className="grid h-9 w-9 place-items-center rounded-md bg-indigo text-background">
+          <span className="grid h-9 w-9 place-items-center rounded-lg bg-indigo text-background">
             <BookOpen className="h-5 w-5" strokeWidth={2.4} />
           </span>
           <span className="font-display text-xl font-extrabold tracking-tight text-indigo">
@@ -15,15 +15,12 @@ export function SiteHeader() {
           </span>
         </a>
 
-        <nav
-          className="hidden items-center divide-x divide-border md:flex"
-          aria-label="Primary"
-        >
+        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
           {links.map((l) => (
             <a
               key={l}
               href="#"
-              className="px-4 text-[0.7rem] font-bold uppercase tracking-[0.14em] text-muted-foreground transition-colors hover:text-indigo"
+              className="rounded-lg px-3 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:bg-secondary hover:text-indigo"
             >
               {l}
             </a>
@@ -33,13 +30,13 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <a
             href="#"
-            className="hidden text-sm font-semibold text-indigo transition-colors hover:text-purple sm:inline-block"
+            className="hidden rounded-lg px-3 py-2 text-sm font-semibold text-indigo transition-colors hover:bg-secondary sm:inline-block"
           >
             Log in
           </a>
           <a
             href="#"
-            className="rounded-md bg-purple px-4 py-2 text-sm font-bold text-primary-foreground shadow-sm transition-transform hover:-translate-y-0.5"
+            className="rounded-lg bg-purple px-4 py-2 text-sm font-bold text-primary-foreground shadow-sm transition-transform hover:-translate-y-0.5"
           >
             Start free
           </a>
